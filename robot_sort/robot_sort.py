@@ -97,7 +97,62 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # Probably look to selection sort or bubble
+        # while loops, if can move right do it, swap while value something
+        # same for left
+
+
+        # Gonna go with bubble. First we grab an item
+
+        # move right to compare
+
+        # Swap the item if it's value is greater
+        
+        # keep moving right and repeat.
+        
+        # at the end (this will probably be a while loop) 
+        # we should place the highest number...? 
+        # or perhaps that's taken care of with left
+
+        # Once we move left we can do the opposite. 
+        # Swap items if they are lower
+        # one more loop to check?? How do we know we are done?
+ 
+        self.set_light_on()
+
+        while self.light_is_on(): 
+            self.set_light_off()
+
+            while self.can_move_right():
+                self.swap_item() 
+                self.move_right()
+
+                if self.compare_item() > 0:
+                    self.swap_item() 
+                    self.set_light_on() # a swap happened.
+                # OK to bubble you need to go back and swap
+                self.move_left() 
+                self.swap_item()
+                self.move_right()
+                # hmm should the while going left be nested??
+                # No that doesn't  make sense
+
+            # Now go left, mirror the right operations
+            while self.can_move_left(): 
+                self.swap_item() 
+                self.move_left()
+
+                if self.compare_item() < 0:
+                    self.swap_item()
+                    self.set_light_on() # a swap happened
+                # OK to bubble you need to go back and swap
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+                    
+            
+
+
 
 
 if __name__ == "__main__":
